@@ -27,8 +27,8 @@ urlpatterns = [
     url(r'^payment/', include('payment.urls', namespace='payment')),
     url(r'^coupons/', include('coupons.urls', namespace='coupons')),
     url(r'^', include('shop.urls', namespace='shop')),
-
-
+    #url('social-auth/', include('social.apps.django_app.urls', namespace='social')),
+    url(r'^accounts/', include('allauth.urls')),
 ]
 
 if settings.DEBUG:
