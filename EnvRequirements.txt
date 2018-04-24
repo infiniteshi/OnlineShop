@@ -21,4 +21,4 @@ South==1.0.2
 tornado==5.0.1
 urllib3==1.22
 whitenoise==3.3.1
-django-allauth
+django-allauth == 0.27.0
