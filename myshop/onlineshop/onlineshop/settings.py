@@ -37,14 +37,26 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'account',
+
+    'django.contrib.sites',
+
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+
+    'allauth.socialaccount.providers.facebook',
+
     'shop',
     'cart',
     'orders',
     'paypal.standard.ipn',
     'payment',
     'coupons',
-]
+    ]
+
+SITE_ID = 1
+
+LOGIN_REDIRECT_URL = '/accounts/logout/'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -73,6 +85,11 @@ TEMPLATES = [
             ],
         },
     },
+]
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
 WSGI_APPLICATION = 'onlineshop.wsgi.application'
@@ -138,3 +155,6 @@ CART_SESSION_ID = 'cart'
 PAYPAL_RECEIVER_EMAIL = 'jyotisangekar@gmail.com'
 PAYPAL_TEST = True
 
+#Adding social authentication - Facebook
+#SOCIAL_AUTH_FACEBOOK_KEY = '154538432047042'
+#SOCIAL_AUTH_FACEBOOK_SECRET = '14f4073d7b6c37f8bf1ec6f9bfc918af'
